@@ -8,7 +8,6 @@ import { ableDeleteUsers } from "../../middleware/ableDeleteUsers"
 const userRoutes = Router()
 async function GetUsers(request: Request, response: Response) {
     const incluirInactivos = request.query.incluirInactivos === 'true'
-
     try {
         const usuarios = await readUsers(incluirInactivos)
         response.status(200).json({

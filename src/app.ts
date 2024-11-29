@@ -3,6 +3,7 @@ import { Request, Response } from "express"
 import cors from "cors"
 import dotenv from "dotenv"
 import usersRoutes from "./user/v1/user.routes"
+import booksRoutes from "./book/v1/book.routes"
 
 dotenv.config()
 
@@ -19,6 +20,7 @@ export default function createApp() {
   app.use(express.json())
 
   app.use(SERVER_VERSION + "usuarios", usersRoutes)
+  app.use(SERVER_VERSION + "libros", booksRoutes)
   app.use(routeNotFound)
   return app
 }
