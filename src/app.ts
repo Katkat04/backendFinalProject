@@ -2,7 +2,7 @@ import express from "express"
 import { Request, Response } from "express"
 import cors from "cors"
 import dotenv from "dotenv"
-
+import usersRoutes from "./user/v1/user.routes"
 
 dotenv.config()
 
@@ -17,6 +17,8 @@ export default function createApp() {
   const app = express()
   app.use(cors())
   app.use(express.json())
+
+  app.use(SERVER_VERSION + "usuarios", usersRoutes)
   app.use(routeNotFound)
   return app
 }
